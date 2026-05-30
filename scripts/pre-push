@@ -1,0 +1,44 @@
+#!/bin/sh
+# pre-push hook to check for LLM prompt regressions before pushing code.
+#
+# To install: 
+#   Copy this file to .git/hooks/pre-push
+#   And make it executable: chmod +x .git/hooks/pre-push
+
+echo ""
+echo "========================================================================"
+echo "          RUNNING PRE-PUSH VALIDATION: MODEL REGRESSION CHECK           "
+echo "========================================================================"
+echo ""
+
+# 1. Run unit tests
+echo "[*] Running automated test suite..."
+python -m pytest tests/
+test_status=$?
+
+if [ $test_status -ne 0 ]; then
+    echo ""
+    echo "[-] ERROR: Unit tests failed. Blocking git push."
+    echo "Please fix the failing tests before pushing."
+    echo ""
+    exit 1
+fi
+
+# 2. Run prompt regression check
+echo "[*] Running prompt evaluation against golden dataset..."
+python scripts/run_eval.py --concurrency 1 --skip-judge --dataset golden_dataset_mini_v1.0.0.json
+eval_status=$?
+
+if [ $eval_status -ne 0 ]; then
+    echo ""
+    echo "[-] CRITICAL FAILURE: LLM quality regression detected. Blocking git push."
+    echo "Please restore prompt quality or update baselines before pushing."
+    echo ""
+    exit 1
+fi
+
+echo ""
+echo "[+] SUCCESS: All quality checks passed. Proceeding with git push..."
+echo "========================================================================"
+echo ""
+exit 0

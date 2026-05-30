@@ -1,0 +1,79 @@
+{
+  "version": "mini_v1.0.0",
+  "created_at": "2026-05-30T19:47:00Z",
+  "description": "Mini rate-limit safe golden dataset for local manual verification and snappier CI runs. 8 cases, 2 per category (easy/medium/hard).",
+  "cases": [
+    {
+      "id": "TC-001",
+      "input_email": "Hi, I was charged $49.99 twice this month for my Pro plan subscription. Can you please look into this and refund the duplicate charge? My credit card ending in 4242 was charged on Oct 15 and Oct 16.",
+      "expected_category": "billing",
+      "expected_summary": "Customer reports a duplicate $49.99 charge on their Pro plan and requests a refund.",
+      "expected_difficulty": "easy",
+      "tags": ["synthesized", "high-priority"],
+      "notes": "Clear billing case — duplicate charge with specific details"
+    },
+    {
+      "id": "TC-002",
+      "input_email": "I'd like to upgrade from the Basic plan to Enterprise. Can you walk me through the pricing differences and what additional features I'd get? Also, is there a discount for annual billing?",
+      "expected_category": "billing",
+      "expected_summary": "Customer inquires about upgrading from Basic to Enterprise plan, pricing details, and annual billing discounts.",
+      "expected_difficulty": "medium",
+      "tags": ["synthesized"],
+      "notes": "Could be general inquiry but primary intent is pricing/subscription change"
+    },
+    {
+      "id": "TC-013",
+      "input_email": "Hi Aetheros Support,\n\nI'm having trouble finding clear documentation on how to implement custom error handling in Mercury. The examples in the current documentation seem outdated and don't align with the latest version I'm using.\n\nCould you please point me to the correct resources or provide some guidance on this?\n\nThanks,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Customer requests up-to-date documentation or guidance on implementing custom error handling in the Mercury language.",
+      "expected_difficulty": "easy",
+      "tags": ["source:inquiry"],
+      "notes": "Technical error or system issue. Subject: 'Mercury Language Documentation Issue'."
+    },
+    {
+      "id": "TC-014",
+      "input_email": "Hi Aetheros Support,\n\nWe are experiencing urgent issues deploying our Mercury code to production. We are consistently getting a 502 error, and our API monitoring dashboard is showing a spike in errors.\n\nThis is causing a major outage for our services. We have checked our code and cannot identify the issue. Can you please investigate ASAP?\n\nThanks,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Customer reports a critical outage due to consistent 502 deployment errors and requests urgent investigation.",
+      "expected_difficulty": "medium",
+      "tags": ["source:issue", "high-priority"],
+      "notes": "Critical deployment failure impacting production APIs."
+    },
+    {
+      "id": "TC-039",
+      "input_email": "We've recently implemented some new roles and permissions using Aetheros IAM, and we're encountering a critical issue.  Users assigned to these new roles are unable to access the resources they should have access to. \n\nWe've double-checked the role configurations and they appear to be correct. Could this be a bug or propagation delay within the system? This is a high priority issue as it's impacting our production environment.\n\nPlease advise as soon as possible on how to resolve this.",
+      "expected_category": "account",
+      "expected_summary": "Customer reports access issues for users assigned to newly created IAM roles and requests assistance with resolving it.",
+      "expected_difficulty": "medium",
+      "tags": ["source:issue", "high-priority"],
+      "notes": "IAM/access propagation discrepancy impacting production."
+    },
+    {
+      "id": "TC-040",
+      "input_email": "Hello,\n\nI'm having trouble assigning a specific role to a user in the IAM service. I've followed the documentation, but the role doesn't seem to be applying correctly. The user is unable to access certain resources they should have access to. \n\nCould you please help me troubleshoot this issue?\n\nThanks,\nKenneth",
+      "expected_category": "account",
+      "expected_summary": "Customer requests troubleshooting assistance for an IAM role assignment that is failing to apply correctly.",
+      "expected_difficulty": "easy",
+      "tags": ["source:issue"],
+      "notes": "IAM/access related issue. Subject: 'Problem with User Roles in IAM'."
+    },
+    {
+      "id": "TC-010",
+      "input_email": "Necesito una factura con RFC para mi empresa en México. El número de cuenta es MX-2847. También quiero saber si aceptan pagos en pesos mexicanos.",
+      "expected_category": "billing",
+      "expected_summary": "Customer requests an invoice with RFC for their Mexican company and inquires about payment in Mexican Pesos.",
+      "expected_difficulty": "adversarial",
+      "tags": ["synthesized", "edge-case", "multilingual"],
+      "notes": "Spanish language billing request — tests multilingual handling"
+    },
+    {
+      "id": "TC-092",
+      "input_email": "---------- Forwarded message ---------\nFrom: Admin <admin@example.com>\nDate: Oct 20, 2023\nSubject: Fwd: Mercury API Gateway Integration\nTo: support@aetheros.com\n\n\n\n",
+      "expected_category": "general",
+      "expected_summary": "Customer forwarded an empty email thread about Mercury API Gateway integration without additional context.",
+      "expected_difficulty": "adversarial",
+      "tags": ["edge-case", "no-content"],
+      "notes": "Forwarded thread with no actionable customer content — should categorize as general"
+    }
+  ]
+}

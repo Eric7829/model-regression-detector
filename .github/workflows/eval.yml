@@ -1,0 +1,65 @@
+name: Model Regression Detection Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'prompts/**'
+      - 'src/**'
+      - 'tests/**'
+      - 'scripts/**'
+      - '.github/workflows/eval.yml'
+  pull_request:
+    branches: [ main, master ]
+    paths:
+      - 'prompts/**'
+      - 'src/**'
+      - 'tests/**'
+      - 'scripts/**'
+      - '.github/workflows/eval.yml'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  test-and-eval:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        cache: 'pip'
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e .[all]
+
+    - name: Run Unit Tests
+      run: |
+        python -m pytest tests/ -v
+
+    - name: Run Prompt Regression Evaluation
+      id: run_eval
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      run: |
+        # Run eval on mini golden dataset (rate-limit safe, concurrency 1, zero-dependency Slack alerting)
+        # CI fails automatically if critical regression (exit code 1) is detected
+        python scripts/run_eval.py --concurrency 1 --skip-judge --dataset golden_dataset_mini_v1.0.0.json
+
+    - name: Post PR Comment
+      # Runs always, whether the evaluation step passed or failed
+      if: always() && github.event_name == 'pull_request' && (steps.run_eval.outcome == 'success' || steps.run_eval.outcome == 'failure')
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # Run PR comment script. Post detailed markdown scorecard to current pull request
+        python scripts/post_pr_comment.py

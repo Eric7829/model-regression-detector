@@ -1,0 +1,1080 @@
+{
+  "version": "v1.0.0",
+  "created_at": "2026-05-30T19:25:35.416706+00:00",
+  "description": "Initial golden dataset curated from Aetheros support emails CSV with synthesized billing cases and adversarial edge cases. 4 categories: billing, technical, account, general.",
+  "cases": [
+    {
+      "id": "TC-001",
+      "input_email": "Hi, I was charged $49.99 twice this month for my Pro plan subscription. Can you please look into this and refund the duplicate charge? My credit card ending in 4242 was charged on Oct 15 and Oct 16.",
+      "expected_category": "billing",
+      "expected_summary": "Hi, I was charged $49.99 twice this month for my Pro plan subscription. Can you please look into this and refund the duplicate charge? My credit card ending in 4242 was charged on Oct 15 and Oct 16.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "synthesized"
+      ],
+      "notes": "Clear billing case — duplicate charge with specific details"
+    },
+    {
+      "id": "TC-002",
+      "input_email": "I'd like to upgrade from the Basic plan to Enterprise. Can you walk me through the pricing differences and what additional features I'd get? Also, is there a discount for annual billing?",
+      "expected_category": "billing",
+      "expected_summary": "I'd like to upgrade from the Basic plan to Enterprise. Can you walk me through the pricing differences and what additional features I'd get? Also, is there a discount for annual billing?",
+      "expected_difficulty": "medium",
+      "tags": [
+        "synthesized"
+      ],
+      "notes": "Could be general inquiry but primary intent is pricing/subscription change"
+    },
+    {
+      "id": "TC-003",
+      "input_email": "Our invoice #INV-2023-0847 shows a charge for 15 API seats but we only have 12 active users. Please correct this and issue a credit for the 3 extra seats.",
+      "expected_category": "billing",
+      "expected_summary": "Our invoice #INV-2023-0847 shows a charge for 15 API seats but we only have 12 active users. Please correct this and issue a credit for the 3 extra seats.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "synthesized"
+      ],
+      "notes": "Clear billing dispute with specific invoice reference"
+    },
+    {
+      "id": "TC-004",
+      "input_email": "I cancelled my subscription last month but I'm still being charged. This is the third time I've reached out about this. I need a full refund for the charges since cancellation and confirmation that no further charges will occur.",
+      "expected_category": "billing",
+      "expected_summary": "I cancelled my subscription last month but I'm still being charged. This is the third time I've reached out about this. I need a full refund for the charges since cancellation and confirmation that no...",
+      "expected_difficulty": "easy",
+      "tags": [
+        "synthesized"
+      ],
+      "notes": "Recurring billing issue with escalation tone"
+    },
+    {
+      "id": "TC-005",
+      "input_email": "Can you explain the difference between the per-seat and per-usage pricing models? We're trying to figure out which would be more cost-effective for our team of 50 developers who use the API intermittently.",
+      "expected_category": "billing",
+      "expected_summary": "Can you explain the difference between the per-seat and per-usage pricing models? We're trying to figure out which would be more cost-effective for our team of 50 developers who use the API intermitte...",
+      "expected_difficulty": "medium",
+      "tags": [
+        "synthesized"
+      ],
+      "notes": "Pricing inquiry that could be mistaken for general"
+    },
+    {
+      "id": "TC-006",
+      "input_email": "We need to add 5 more seats to our account but the self-service portal isn't letting me. It says 'payment method expired'. Can you update our payment info and process the seat addition?",
+      "expected_category": "billing",
+      "expected_summary": "We need to add 5 more seats to our account but the self-service portal isn't letting me. It says 'payment method expired'. Can you update our payment info and process the seat addition?",
+      "expected_difficulty": "medium",
+      "tags": [
+        "synthesized"
+      ],
+      "notes": "Mix of billing (payment) and account (portal access) — billing is primary"
+    },
+    {
+      "id": "TC-007",
+      "input_email": "hi i see a charge i dont recognize on my statement from aetheros for 199.99. i dont think i signed up for anything. pls help",
+      "expected_category": "billing",
+      "expected_summary": "hi i see a charge i dont recognize on my statement from aetheros for 199.99. i dont think i signed up for anything. pls help",
+      "expected_difficulty": "hard",
+      "tags": [
+        "synthesized",
+        "edge-case"
+      ],
+      "notes": "Informal writing, no details, could be fraud or forgotten subscription"
+    },
+    {
+      "id": "TC-008",
+      "input_email": "Our finance team needs a W-9 form and a detailed breakdown of all charges for Q3 2023 for our audit. Can you provide these documents?",
+      "expected_category": "billing",
+      "expected_summary": "Our finance team needs a W-9 form and a detailed breakdown of all charges for Q3 2023 for our audit. Can you provide these documents?",
+      "expected_difficulty": "hard",
+      "tags": [
+        "synthesized",
+        "edge-case"
+      ],
+      "notes": "Financial/admin request — billing-adjacent but could be classified as general"
+    },
+    {
+      "id": "TC-009",
+      "input_email": "The free trial ended but I'm locked out AND being asked to pay. I thought the trial was 30 days but it's only been 14 days. Either extend my trial or let me at least export my data before I decide whether to subscribe.",
+      "expected_category": "billing",
+      "expected_summary": "The free trial ended but I'm locked out AND being asked to pay. I thought the trial was 30 days but it's only been 14 days. Either extend my trial or let me at least export my data before I decide whe...",
+      "expected_difficulty": "hard",
+      "tags": [
+        "synthesized",
+        "edge-case"
+      ],
+      "notes": "Overlaps billing (trial/payment), account (locked out), and general (data export). Billing is primary."
+    },
+    {
+      "id": "TC-010",
+      "input_email": "Necesito una factura con RFC para mi empresa en México. El número de cuenta es MX-2847. También quiero saber si aceptan pagos en pesos mexicanos.",
+      "expected_category": "billing",
+      "expected_summary": "Necesito una factura con RFC para mi empresa en México. El número de cuenta es MX-2847. También quiero saber si aceptan pagos en pesos mexicanos.",
+      "expected_difficulty": "adversarial",
+      "tags": [
+        "synthesized",
+        "edge-case",
+        "multilingual"
+      ],
+      "notes": "Spanish language billing request — tests multilingual handling"
+    },
+    {
+      "id": "TC-011",
+      "input_email": "refund",
+      "expected_category": "billing",
+      "expected_summary": "refund",
+      "expected_difficulty": "adversarial",
+      "tags": [
+        "synthesized",
+        "edge-case",
+        "minimal-input"
+      ],
+      "notes": "Extremely terse — tests classifier on minimal input"
+    },
+    {
+      "id": "TC-012",
+      "input_email": "I want to downgrade my plan but I'm worried I'll lose access to the analytics dashboard I set up. If I downgrade, will my saved dashboards and API monitoring configurations be preserved, or will they be deleted?",
+      "expected_category": "billing",
+      "expected_summary": "I want to downgrade my plan but I'm worried I'll lose access to the analytics dashboard I set up. If I downgrade, will my saved dashboards and API monitoring configurations be preserved, or will they...",
+      "expected_difficulty": "hard",
+      "tags": [
+        "synthesized",
+        "edge-case"
+      ],
+      "notes": "Mix of billing (downgrade) and technical (data retention) — billing is primary intent"
+    },
+    {
+      "id": "TC-013",
+      "input_email": "Hi Aetheros Support,\n\nI'm having trouble finding clear documentation on how to implement custom error handling in Mercury. The examples in the current documentation seem outdated and don't align with the latest version I'm using.\n\nCould you please point me to the correct resources or provide some guidance on this?\n\nThanks,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  I'm having trouble finding clear documentation on how to implement custom error handling in Mercury. The examples in the current documentation seem outdated and don't align with the latest version I'm using.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "Technical error or system issue. Subject: 'Mercury Language Documentation Issue'. Products: ['Mercury Language']"
+    },
+    {
+      "id": "TC-014",
+      "input_email": "Hi Aetheros Support,\n\nWe are experiencing urgent issues deploying our Mercury code to production. We are consistently getting a 502 error, and our API monitoring dashboard is showing a spike in errors.\n\nThis is causing a major outage for our services. We have checked our code and cannot identify the issue. Can you please investigate ASAP?\n\nThanks,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  We are experiencing urgent issues deploying our Mercury code to production. We are consistently getting a 502 error, and our API monitoring dashboard is showing a spike in errors.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:issue",
+        "high-priority"
+      ],
+      "notes": "Technical error or system issue. Subject: 'URGENT: Mercury Code Deployment Failing with Error 502'. Products: ['Mercury Language', 'API monitoring']"
+    },
+    {
+      "id": "TC-015",
+      "input_email": "Hi Aetheros Support Team,\n\nI'm writing to suggest an improvement to your API development process.  Currently, the documentation for error codes returned by the APIs seems a bit sparse. It would be incredibly helpful if you could provide more detailed explanations of each error code, including potential causes and suggested solutions. This would greatly expedite troubleshooting and integration.\n\nThanks,\nIsabella Garcia",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support Team,  I'm writing to suggest an improvement to your API development process.  Currently, the documentation for error codes returned by the APIs seems a bit sparse.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:suggestion"
+      ],
+      "notes": "Technical error or system issue. Subject: 'Improvement Suggestion for API Development Process'. Products: ['API development']"
+    },
+    {
+      "id": "TC-016",
+      "input_email": "Hi Aetheros Support,\n\nI've been noticing some unusual latency spikes with my API over the past few days.  It's not consistent, but it's happening frequently enough to be concerning.\n\nCould you take a look and see if there's anything on the monitoring side that might be causing this?\n\nThanks,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  I've been noticing some unusual latency spikes with my API over the past few days.  It's not consistent, but it's happening frequently enough to be concerning.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "Technical error or system issue. Subject: 'API Monitoring - Unusual Latency Spikes'. Products: ['API monitoring']"
+    },
+    {
+      "id": "TC-017",
+      "input_email": "Hi Aetheros Support,\n\nOne of our production server instances managed through your Cloud Management service is currently unreachable. This is causing significant downtime and impacting our customers.\n\nThe instance name is \"prod-app-server-01\".\n\nCan you please investigate this issue with high priority and provide an update as soon as possible?\n\nThanks,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  One of our production server instances managed through your Cloud Management service is currently unreachable. This is causing significant downtime and impacting our customers.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:issue"
+      ],
+      "notes": "Technical error or system issue. Subject: 'Urgent: Production Server Instance Unreachable'. Products: ['Cloud management']"
+    },
+    {
+      "id": "TC-018",
+      "input_email": "Hi Aetheros Support,\n\nWe've been experiencing intermittent latency spikes with our API that are being flagged by your API Monitoring service. These spikes are impacting our application performance and are concerning.\n\nAdditionally, we've noticed a significant increase in our cloud costs recently. We're unsure if this is related to the API issues or something else entirely. Could you please help us investigate both of these matters?\n\nThanks,\nKenneth",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  We've been experiencing intermittent latency spikes with our API that are being flagged by your API Monitoring service. These spikes are impacting our application performance and are concerning.",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:issue",
+        "edge-case",
+        "multi-product"
+      ],
+      "notes": "Technical error or system issue. Subject: 'Urgent: API Monitoring Latency Spikes & Cloud Costs'. Products: ['API monitoring', 'Cloud management', 'API development']"
+    },
+    {
+      "id": "TC-019",
+      "input_email": "Hi Aetheros Support,\n\nI've been noticing some strange latency spikes in our API monitoring dashboard since yesterday evening.  It doesn't seem tied to any particular endpoint or user action. Could you please take a look?\n\nThanks,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  I've been noticing some strange latency spikes in our API monitoring dashboard since yesterday evening.  It doesn't seem tied to any particular endpoint or user action.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "Technical error or system issue. Subject: 'API Monitoring - Unusual Latency Spikes'. Products: ['API monitoring']"
+    },
+    {
+      "id": "TC-020",
+      "input_email": "Hi Aetheros Support,\n\nI'm having some trouble figuring out how to best handle data type conversions in Mercury. Specifically, I'm trying to convert a string representation of a date and time to a format I can use for calculations. \n\nCould you point me to any relevant documentation or examples? \n\nThanks,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  I'm having some trouble figuring out how to best handle data type conversions in Mercury. Specifically, I'm trying to convert a string representation of a date and time to a format I can use for calculations.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "Mercury language technical question. Subject: 'Mercury Language - Question about Data Type Conversion'. Products: ['Mercury Language']"
+    },
+    {
+      "id": "TC-021",
+      "input_email": "Hi Aetheros Support,\n\nI've been noticing some unusual latency spikes on our API monitoring dashboard for the past few hours. The spikes seem to be intermittent and don't seem tied to any particular endpoint or time of day.\n\nCould you please take a look and see if there's anything going on on your end?\n\nThanks,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  I've been noticing some unusual latency spikes on our API monitoring dashboard for the past few hours. The spikes seem to be intermittent and don't seem tied to any particular endpoint or time of day.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:issue"
+      ],
+      "notes": "Technical error or system issue. Subject: 'Latency spikes in API monitoring dashboard'. Products: ['Cloud management', 'API monitoring']"
+    },
+    {
+      "id": "TC-022",
+      "input_email": "Hi Aetheros Support,\n\nI'm encountering an unexpected type error while working with Mercury language in my project. \n\nSpecifically, I'm getting an error that says \"Type mismatch: expected 'String', got 'Integer'\" when trying to pass an integer value to a function that expects a string. \n\nI've double-checked my code and the function definition, and everything seems correct according to the documentation.\n\nCould you please help me understand why this error is occurring and how to resolve it?\n\nThanks,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  I'm encountering an unexpected type error while working with Mercury language in my project.   Specifically, I'm getting an error that says \"Type mismatch: expected 'String', got 'Integer'\" when trying to pass an integer valu...",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:issue"
+      ],
+      "notes": "Technical error or system issue. Subject: 'Mercury Language - Unexpected Type Error'. Products: ['Mercury Language']"
+    },
+    {
+      "id": "TC-023",
+      "input_email": "We are experiencing critical issues with our latest cloud deployment. We are using Aetheros Cloud Management and API Gateway. Deployments are consistently failing with a timeout error related to API Gateway provisioning. \n\nThis is causing a complete outage for our production environment. We need this resolved urgently.\n\nPlease advise on next steps.",
+      "expected_category": "technical",
+      "expected_summary": "We are experiencing critical issues with our latest cloud deployment. We are using Aetheros Cloud Management and API Gateway.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:issue",
+        "high-priority"
+      ],
+      "notes": "Technical error or system issue. Subject: 'Urgent: Cloud deployment failing with API Gateway timeout'. Products: ['Cloud management', 'API development']"
+    },
+    {
+      "id": "TC-024",
+      "input_email": "We are experiencing a critical issue with the API you developed for our e-commerce platform. The integration is completely failing, causing a complete halt in our online orders. \n\nWe need this resolved immediately as this is costing us significant revenue every hour. Please advise on the next steps ASAP.",
+      "expected_category": "technical",
+      "expected_summary": "We are experiencing a critical issue with the API you developed for our e-commerce platform. The integration is completely failing, causing a complete halt in our online orders.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:issue",
+        "high-priority"
+      ],
+      "notes": "Technical error or system issue. Subject: 'URGENT: API Integration Failing - Halting Production'. Products: ['API development']"
+    },
+    {
+      "id": "TC-025",
+      "input_email": "We are facing a critical issue with integrating Mercury language into our existing API, developed with Aetheros last year. The documentation seems outdated and we are experiencing frequent crashes. This is causing a major disruption to our services. We need immediate assistance to resolve this.",
+      "expected_category": "technical",
+      "expected_summary": "We are facing a critical issue with integrating Mercury language into our existing API, developed with Aetheros last year. The documentation seems outdated and we are experiencing frequent crashes.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:issue",
+        "high-priority"
+      ],
+      "notes": "Technical error or system issue. Subject: 'Urgent Issue: Mercury Language Integration with Existing API Failing'. Products: ['API development', 'Mercury Language']"
+    },
+    {
+      "id": "TC-026",
+      "input_email": "Hello Aetheros Support Team,\n\nWe are experiencing a critical issue with the API you developed for us. Since this morning, we've observed a significant increase in response times, sometimes exceeding several minutes. This is causing major disruptions to our services.\n\nWe need this addressed urgently. Please advise on the next steps to troubleshoot and resolve this issue as soon as possible.\n\nSincerely,\nJohn Doe\nExample Company",
+      "expected_category": "technical",
+      "expected_summary": "Hello Aetheros Support Team,  We are experiencing a critical issue with the API you developed for us. Since this morning, we've observed a significant increase in response times, sometimes exceeding several minutes.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:issue",
+        "high-priority"
+      ],
+      "notes": "Reported issue (fallback). Subject: 'Urgent Issue with API Response Time - Aetheros API'. Products: ['API development']"
+    },
+    {
+      "id": "TC-027",
+      "input_email": "Hi Aetheros Support,\n\nI'm facing an urgent issue with rotating API keys using the IAM service. I've followed the documentation provided, but the new key doesn't seem to be recognized. This is causing disruption to our live application. \n\nCan you please advise on how to resolve this promptly?\n\nThanks,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  I'm facing an urgent issue with rotating API keys using the IAM service. I've followed the documentation provided, but the new key doesn't seem to be recognized.",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:issue",
+        "edge-case"
+      ],
+      "notes": "Reported issue (fallback). Subject: 'Urgent Issue: API Key Rotation Not Working as Expected'. Products: ['IAM service', 'API development']"
+    },
+    {
+      "id": "TC-028",
+      "input_email": "Hi Aetheros Support,\n\nI'm having trouble deploying a Mercury lambda function to my managed cloud environment. The deployment seems to hang and then eventually times out. I've checked my resource limits and everything seems to be in order.\n\nCan you please advise?\n\nThanks,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  I'm having trouble deploying a Mercury lambda function to my managed cloud environment. The deployment seems to hang and then eventually times out.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:issue"
+      ],
+      "notes": "Mercury language technical question. Subject: 'Mercury Lambda Function Deployment Issue'. Products: ['Cloud Management', 'Mercury Language']"
+    },
+    {
+      "id": "TC-029",
+      "input_email": "Hi Aetheros Support,\n\nI'm evaluating your Cloud Management and API Development services for a new project. We're particularly interested in understanding how seamlessly these two services integrate.\n\nCould you provide some information or documentation on how we can leverage Aetheros's Cloud Management capabilities to deploy and manage APIs developed using your platform?\n\nSpecifically, I'm interested in:\n\n* Automated deployment of APIs to our preferred cloud provider.\n* Scaling resources based on API traffic.\n* Integration with existing monitoring and logging tools.\n\nThanks in advance for your assistance.\n\nSincerely,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  I'm evaluating your Cloud Management and API Development services for a new project. We're particularly interested in understanding how seamlessly these two services integrate.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "Infrastructure/API technical issue. Subject: 'Inquiry about Cloud Management and API Development Integration'. Products: ['Cloud management', 'API development']"
+    },
+    {
+      "id": "TC-030",
+      "input_email": "Hi Aetheros Support,\n\nWe're facing critical issues with our recent cloud deployment. We're getting consistent \"504 Gateway Timeout\" errors from our main API gateway.  This is completely blocking our production traffic.\n\nWe're using your Cloud Management platform for deployment and scaling. We suspect an issue with the load balancer configuration or possibly an issue with the API code itself, which we developed using your API development services.\n\nWe need this resolved urgently. Please advise on the next steps and estimated resolution time.\n\nRegards,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  We're facing critical issues with our recent cloud deployment. We're getting consistent \"504 Gateway Timeout\" errors from our main API gateway.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:issue",
+        "high-priority"
+      ],
+      "notes": "Technical error or system issue. Subject: 'Urgent: Cloud deployment failing - API Gateway Timeout Errors'. Products: ['Cloud management', 'API development']"
+    },
+    {
+      "id": "TC-031",
+      "input_email": "Hi Aetheros Support,\n\nI'm working with the Mercury language for a new API project, and I'm having trouble finding clear documentation on how to implement rate limiting within the language itself. Is there a specific library or module I should be using, or is this handled through a different Aetheros service?\n\nThanks,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  I'm working with the Mercury language for a new API project, and I'm having trouble finding clear documentation on how to implement rate limiting within the language itself. Is there a specific library or module I should be u...",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "Mercury language technical question. Subject: 'Mercury Language Documentation Question'. Products: ['API monitoring', 'Mercury Language']"
+    },
+    {
+      "id": "TC-032",
+      "input_email": "Hi Aetheros Support,\n\nI'm working on a project using Mercury Language and I'm having some trouble understanding the best practices for error handling. Specifically, I'm unsure about how to implement custom error types and handle them gracefully within my API endpoints.\n\nCould you provide some guidance or point me to relevant documentation on this topic?\n\nThanks,\nIsabella Jones",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  I'm working on a project using Mercury Language and I'm having some trouble understanding the best practices for error handling. Specifically, I'm unsure about how to implement custom error types and handle them gracefully wi...",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "Technical error or system issue. Subject: 'Question about Mercury Language Error Handling'. Products: ['Mercury Language']"
+    },
+    {
+      "id": "TC-033",
+      "input_email": "Hi Aetheros Support,\n\nI'm experiencing some unexpected behavior with asynchronous calls in the Mercury language. When I make multiple concurrent requests, sometimes the responses are returned in the wrong order, leading to data inconsistencies in my application. \n\nI've tried debugging using the API monitoring tools, but I haven't been able to pinpoint the exact cause. \n\nCould you provide any insights or suggestions on how to resolve this issue?\n\nThanks,\nIsiah Rippin",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  I'm experiencing some unexpected behavior with asynchronous calls in the Mercury language. When I make multiple concurrent requests, sometimes the responses are returned in the wrong order, leading to data inconsistencies in ...",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:issue",
+        "edge-case",
+        "multi-product"
+      ],
+      "notes": "Technical error or system issue. Subject: 'Mercury Language - Unexpected Behavior with Async Calls'. Products: ['Mercury Language', 'API development', 'API monitoring']"
+    },
+    {
+      "id": "TC-034",
+      "input_email": "Hi Aetheros Support,\n\nI'm working on a project using Mercury and I'm a bit stuck on some syntax. I'm trying to figure out how to properly handle asynchronous requests and the documentation isn't entirely clear on this. Could you provide some examples or point me in the right direction?\n\nThanks,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support,  I'm working on a project using Mercury and I'm a bit stuck on some syntax. I'm trying to figure out how to properly handle asynchronous requests and the documentation isn't entirely clear on this.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "Mercury language technical question. Subject: 'Question about Mercury Language Syntax'. Products: ['Mercury Language']"
+    },
+    {
+      "id": "TC-035",
+      "input_email": "Hi Aetheros Support Team,\n\nI'm experiencing an issue deploying a Mercury Language application on the Aetheros Cloud platform. I followed the documentation steps but encountered an error during the deployment stage.\n\nCan you please advise?\n\nThanks,\nJohn Doe",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support Team,  I'm experiencing an issue deploying a Mercury Language application on the Aetheros Cloud platform. I followed the documentation steps but encountered an error during the deployment stage.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:issue"
+      ],
+      "notes": "Technical error or system issue. Subject: 'Mercury Language Deployment Issue on Aetheros Cloud'. Products: ['Mercury Language', 'Cloud Management']"
+    },
+    {
+      "id": "TC-036",
+      "input_email": "Hi Aetheros Support Team,\n\nI've been noticing some unusual latency spikes on our API monitoring dashboard for the past few hours. The spikes seem to be intermittent and don't appear to be tied to any specific endpoint or user action.  \n\nCould you please take a look and advise if there's anything we need to be concerned about or if any action is required from our side?\n\nThanks,\nIsiah Cronin",
+      "expected_category": "technical",
+      "expected_summary": "Hi Aetheros Support Team,  I've been noticing some unusual latency spikes on our API monitoring dashboard for the past few hours. The spikes seem to be intermittent and don't appear to be tied to any specific endpoint or user action.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:issue"
+      ],
+      "notes": "Technical error or system issue. Subject: 'Latency Spikes in API Monitoring Dashboard'. Products: ['API monitoring', 'API development']"
+    },
+    {
+      "id": "TC-037",
+      "input_email": "Our API monitoring dashboard is completely down. We're seeing massive performance issues in production and can't access any metrics. This is a critical outage for us. Please advise ASAP.",
+      "expected_category": "technical",
+      "expected_summary": "Our API monitoring dashboard is completely down. We're seeing massive performance issues in production and can't access any metrics.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:issue",
+        "high-priority"
+      ],
+      "notes": "Technical error or system issue. Subject: 'URGENT: API Monitoring Dashboard Down, Production Impacted'. Products: ['API monitoring', 'Cloud management']"
+    },
+    {
+      "id": "TC-038",
+      "input_email": "We are experiencing critical issues with user permissions on our production API (API key: aeth-prod-28374). Users with the correct roles are being denied access to endpoints they should have access to. This is causing major disruption to our services. We need immediate assistance to resolve this.\n\nWe believe the issue might be related to recent changes we made in the IAM service regarding role assignments. We can provide more details on the specific roles and endpoints affected if needed.",
+      "expected_category": "account",
+      "expected_summary": "We are experiencing critical issues with user permissions on our production API (API key: aeth-prod-28374). Users with the correct roles are being denied access to endpoints they should have access to.",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:issue",
+        "edge-case",
+        "high-priority"
+      ],
+      "notes": "IAM/access related issue. Subject: 'URGENT: User Permission Errors in Production API'. Products: ['API Development', 'IAM service']"
+    },
+    {
+      "id": "TC-039",
+      "input_email": "We've recently implemented some new roles and permissions using Aetheros IAM, and we're encountering a critical issue.  Users assigned to these new roles are unable to access the resources they should have access to. \n\nWe've double-checked the role configurations and they appear to be correct. Could this be a bug or propagation delay within the system? This is a high priority issue as it's impacting our production environment.\n\nPlease advise as soon as possible on how to resolve this.",
+      "expected_category": "account",
+      "expected_summary": "We've recently implemented some new roles and permissions using Aetheros IAM, and we're encountering a critical issue.  Users assigned to these new roles are unable to access the resources they should have access to.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:issue",
+        "high-priority"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Urgent: Users unable to access resources with newly defined roles'. Products: ['IAM service']"
+    },
+    {
+      "id": "TC-040",
+      "input_email": "Hello,\n\nI'm having trouble assigning a specific role to a user in the IAM service. I've followed the documentation, but the role doesn't seem to be applying correctly. The user is unable to access certain resources they should have access to. \n\nCould you please help me troubleshoot this issue?\n\nThanks,\nKenneth",
+      "expected_category": "account",
+      "expected_summary": "Hello,  I'm having trouble assigning a specific role to a user in the IAM service. I've followed the documentation, but the role doesn't seem to be applying correctly.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:issue"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Problem with User Roles in IAM'. Products: ['IAM service']"
+    },
+    {
+      "id": "TC-041",
+      "input_email": "Hi Aetheros Support,\n\nI've been working with Mercury for the past few months and have been really impressed with how it streamlines API development. However, I noticed a few areas in the documentation that I believe could be improved for clarity and completeness.\n\nSpecifically, I think it would be beneficial to:\n\n1. **Expand on the section about error handling in Mercury.**  A more detailed explanation of common error types and how to implement robust error handling would be incredibly helpful.\n2. **Provide more practical examples of using IAM roles within Mercury code.** While the basic concepts are covered, having more real-world scenarios illustrated would greatly enhance understanding.\n\nI'm confident that these additions would make the Mercury documentation even more valuable to developers like myself. \n\nThank you for your time and consideration.\n\nSincerely,\nIsiah Wuckert",
+      "expected_category": "account",
+      "expected_summary": "Hi Aetheros Support,  I've been working with Mercury for the past few months and have been really impressed with how it streamlines API development. However, I noticed a few areas in the documentation that I believe could be improved for clarity a...",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:suggestion",
+        "edge-case"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Mercury Language Documentation Improvement Suggestion'. Products: ['Mercury Language', 'IAM service']"
+    },
+    {
+      "id": "TC-042",
+      "input_email": "We are experiencing an issue with an IAM role in our production environment. \n\nWe recently made changes to the permissions associated with this role and are now encountering authentication errors when trying to access our API endpoints.  This is causing significant disruption to our services. \n\nCould you please investigate this issue as a matter of urgency and provide a solution as soon as possible?\n\nThanks,\nJohn Doe",
+      "expected_category": "account",
+      "expected_summary": "We are experiencing an issue with an IAM role in our production environment.   We recently made changes to the permissions associated with this role and are now encountering authentication errors when trying to access our API endpoints.",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:issue",
+        "edge-case"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Urgent: IAM Role Issue Impacting Production'. Products: ['IAM service', 'API development']"
+    },
+    {
+      "id": "TC-043",
+      "input_email": "Hi Aetheros Support,\n\nI'm having trouble adding users to a specific group within the IAM service. I've followed the documentation, but I keep encountering an error message. \n\nCould you please help me with this?\n\nThanks,\nJohn Doe",
+      "expected_category": "account",
+      "expected_summary": "Hi Aetheros Support,  I'm having trouble adding users to a specific group within the IAM service. I've followed the documentation, but I keep encountering an error message.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Problem adding users to group in IAM service'. Products: ['IAM service']"
+    },
+    {
+      "id": "TC-044",
+      "input_email": "We're experiencing a critical issue with our Aetheros IAM integration. Our production API calls are failing due to incorrect permissions, causing a major outage. We need immediate assistance to resolve this. \n\nSpecifically, users with the \"Editor\" role are suddenly unable to access endpoints they could access yesterday. We haven't made any changes to our IAM configuration recently. \n\nPlease advise ASAP.",
+      "expected_category": "account",
+      "expected_summary": "We're experiencing a critical issue with our Aetheros IAM integration. Our production API calls are failing due to incorrect permissions, causing a major outage.",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:issue",
+        "edge-case",
+        "high-priority"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Urgent: Critical IAM Permission Errors Impacting Production'. Products: ['API monitoring', 'IAM service']"
+    },
+    {
+      "id": "TC-045",
+      "input_email": "Hi Aetheros Support,\n\nWe are experiencing two critical issues with our Aetheros implementation:\n\n**1. API Monitoring Alerts Not Triggering:**\nOur API monitoring setup has stopped triggering alerts for critical errors. We've confirmed the alert conditions are still valid and our APIs are experiencing these errors, but no alerts are being generated or sent.\n\n**2. IAM Role Permissions Not Applying:**\nWe recently updated permissions for a specific IAM role, but the changes aren't reflecting in our environment. Users assigned to this role are still able to access resources they shouldn't have access to.\n\nThis is causing significant disruption to our operations. We require urgent assistance to resolve these issues.\n\nPlease advise on the next steps for troubleshooting and resolution.\n\nSincerely,\nJohn Doe",
+      "expected_category": "account",
+      "expected_summary": "Hi Aetheros Support,  We are experiencing two critical issues with our Aetheros implementation:  **1. API Monitoring Alerts Not Triggering:** Our API monitoring setup has stopped triggering alerts for critical errors.",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:issue",
+        "edge-case",
+        "high-priority"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Urgent Issue: API Monitoring Alerts Not Triggering & IAM Role Discrepancy'. Products: ['API monitoring', 'IAM service']"
+    },
+    {
+      "id": "TC-046",
+      "input_email": "We are experiencing a critical issue with our Aetheros cloud instance. It has become unreachable within the last hour, and we are unable to access our applications or data. Additionally, we're having trouble managing user permissions through the IAM service. Attempts to modify roles are resulting in errors. This is a high-priority issue impacting our operations, and we need immediate assistance.",
+      "expected_category": "account",
+      "expected_summary": "We are experiencing a critical issue with our Aetheros cloud instance. It has become unreachable within the last hour, and we are unable to access our applications or data.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:issue",
+        "high-priority"
+      ],
+      "notes": "IAM/access related issue. Subject: 'URGENT: Cloud Instance Unreachable & IAM Role Issues'. Products: ['Cloud management', 'IAM service']"
+    },
+    {
+      "id": "TC-047",
+      "input_email": "Hi Aetheros Support,\n\nWe are facing an urgent issue with our API Gateway.  We recently set up new roles and permissions in the Aetheros IAM service and applied them to our API Gateway. However,  we are encountering authorization errors when users try to access the API with these new roles.\n\nThe errors started appearing around [mention approximate time]. We haven't made any other changes to the API Gateway configuration recently.\n\nCould you please help us resolve this issue as soon as possible?\n\nThanks,\nJohn Doe\nExample Inc.",
+      "expected_category": "account",
+      "expected_summary": "Hi Aetheros Support,  We are facing an urgent issue with our API Gateway.  We recently set up new roles and permissions in the Aetheros IAM service and applied them to our API Gateway.",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:issue",
+        "edge-case"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Urgent issue with API Gateway authorization for new IAM roles'. Products: ['API development', 'IAM service']"
+    },
+    {
+      "id": "TC-048",
+      "input_email": "Our team is experiencing critical issues with accessing the API monitoring dashboards since this morning. We believe this is related to our IAM configuration, as users are receiving \"Access Denied\" errors. \n\nWe rely heavily on the API monitoring tools for our operations, and this downtime is severely impacting our business. We need this resolved urgently.\n\nCan you please investigate and provide an update as soon as possible?",
+      "expected_category": "account",
+      "expected_summary": "Our team is experiencing critical issues with accessing the API monitoring dashboards since this morning. We believe this is related to our IAM configuration, as users are receiving \"Access Denied\" errors.",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:issue",
+        "edge-case",
+        "high-priority"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Urgent: Users Unable to Access API Dashboard - IAM and API Monitoring Issues'. Products: ['IAM service', 'API monitoring']"
+    },
+    {
+      "id": "TC-049",
+      "input_email": "We are experiencing a critical issue where our cloud resources have become unavailable after making changes to an IAM role. We believe this issue started around [mention approximate time].  We are unable to access our applications and our monitoring dashboards are showing errors.  Please advise on how to resolve this issue as soon as possible.",
+      "expected_category": "account",
+      "expected_summary": "We are experiencing a critical issue where our cloud resources have become unavailable after making changes to an IAM role. We believe this issue started around [mention approximate time].",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:issue",
+        "edge-case",
+        "multi-product",
+        "high-priority"
+      ],
+      "notes": "IAM/access related issue. Subject: 'URGENT: Cloud resources unavailable after IAM role change'. Products: ['Cloud management', 'IAM service', 'API monitoring']"
+    },
+    {
+      "id": "TC-050",
+      "input_email": "Hi Aetheros Support,\n\nI am facing difficulties assigning new roles to users within the IAM service. I've tried multiple times, but I keep encountering an error message. Could you please advise on how to resolve this?\n\nThank you,\nIsabelle Davis",
+      "expected_category": "account",
+      "expected_summary": "Hi Aetheros Support,  I am facing difficulties assigning new roles to users within the IAM service. I've tried multiple times, but I keep encountering an error message.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:issue"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Urgent: Unable to Assign New Roles in IAM Service'. Products: ['IAM service']"
+    },
+    {
+      "id": "TC-051",
+      "input_email": "Hi Aetheros Support,\n\nI'm having trouble setting up specific user roles within the IAM service. I want to give certain team members read-only access to a specific API, but I can't seem to find the correct combination of permissions to make that happen.\n\nCould you please advise on how to achieve this?\n\nThanks,\nJohn Doe",
+      "expected_category": "account",
+      "expected_summary": "Hi Aetheros Support,  I'm having trouble setting up specific user roles within the IAM service. I want to give certain team members read-only access to a specific API, but I can't seem to find the correct combination of permissions to make that ha...",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:issue",
+        "edge-case"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Problem with User Roles in IAM'. Products: ['IAM service']"
+    },
+    {
+      "id": "TC-052",
+      "input_email": "Hi Aetheros Support,\n\nI am experiencing a critical issue where I am unable to access the API dashboard for our organization. I believe this might be related to my IAM role permissions, as I was recently reassigned within the team. \n\nI have tried logging out and back in, but the problem persists. This is severely impacting our development workflow as we cannot monitor our API performance or access crucial analytics.\n\nPlease investigate this urgently and let me know what steps are needed to resolve this issue.\n\nOrganization ID: ORG-74615\nUsername: isabella.rodriguez\n\nThank you,\nIsabella Rodriguez",
+      "expected_category": "account",
+      "expected_summary": "Hi Aetheros Support,  I am experiencing a critical issue where I am unable to access the API dashboard for our organization. I believe this might be related to my IAM role permissions, as I was recently reassigned within the team.",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:issue",
+        "edge-case",
+        "high-priority"
+      ],
+      "notes": "IAM/access related issue. Subject: 'URGENT: Unable to Access API Dashboard - Suspected Role Issue'. Products: ['IAM service', 'API monitoring']"
+    },
+    {
+      "id": "TC-053",
+      "input_email": "Hi Aetheros Support,\n\nI'm having some trouble understanding the limitations of custom roles within the IAM service. Specifically, I want to create a role that can manage cloud resources but only within a specific region. Is this possible with the current feature set?\n\nThanks,\nJohn Doe",
+      "expected_category": "account",
+      "expected_summary": "Hi Aetheros Support,  I'm having some trouble understanding the limitations of custom roles within the IAM service. Specifically, I want to create a role that can manage cloud resources but only within a specific region.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Question about IAM role limitations'. Products: ['Cloud management', 'IAM service']"
+    },
+    {
+      "id": "TC-054",
+      "input_email": "Hi Aetheros Support,\n\nI'm having some trouble understanding the role permissions for the API Monitoring platform.  Specifically, I'm trying to create a role that can view dashboards but not edit them. Is this possible with the current setup?\n\nThanks,\nJohn Doe",
+      "expected_category": "account",
+      "expected_summary": "Hi Aetheros Support,  I'm having some trouble understanding the role permissions for the API Monitoring platform.  Specifically, I'm trying to create a role that can view dashboards but not edit them.",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:inquiry",
+        "edge-case"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Question about API Monitoring Role Permissions'. Products: ['IAM service', 'API monitoring']"
+    },
+    {
+      "id": "TC-055",
+      "input_email": "Hi Aetheros Support,\n\nWe've been utilizing your IAM service for a few months now and are very happy with its features and performance. However, we believe adding role inheritance functionality could greatly simplify our user management.\n\nSpecifically, it would be beneficial to have roles inherit permissions from parent roles. For instance, a \"Senior Developer\" role could inherit all permissions from a \"Developer\" role, with the ability to add specific permissions as needed.\n\nThis would reduce redundancy in our permission setup and make it easier to manage users as our team grows.\n\nCould you please consider implementing this feature in a future release?\n\nThanks,\nIsiah Rippin",
+      "expected_category": "account",
+      "expected_summary": "Hi Aetheros Support,  We've been utilizing your IAM service for a few months now and are very happy with its features and performance. However, we believe adding role inheritance functionality could greatly simplify our user management.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:suggestion"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Suggestion for IAM service - Role inheritance'. Products: ['IAM service']"
+    },
+    {
+      "id": "TC-056",
+      "input_email": "Hi Aetheros Support,\n\nI'm working on integrating our Mercury-based API with the Aetheros IAM service. We're encountering an issue where the API doesn't seem to be properly recognizing the roles assigned to users through the IAM. \n\nSpecifically, users who should have access to certain API endpoints based on their roles are getting denied access. Could you please provide some guidance on how to troubleshoot this?\n\nThanks,\nJohn Doe",
+      "expected_category": "account",
+      "expected_summary": "Hi Aetheros Support,  I'm working on integrating our Mercury-based API with the Aetheros IAM service. We're encountering an issue where the API doesn't seem to be properly recognizing the roles assigned to users through the IAM.",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:inquiry",
+        "edge-case"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Mercury Language Integration with IAM Roles'. Products: ['Mercury Language', 'IAM service']"
+    },
+    {
+      "id": "TC-057",
+      "input_email": "Hello Aetheros Support,\n\nWe are evaluating Aetheros for our API management needs and are particularly interested in the IAM service and its integration with the API Gateway.\n\nCould you please provide some information on how granular we can get with role-based access control for our APIs? Specifically, can we define permissions based on:\n\n* HTTP methods (GET, POST, PUT, DELETE)\n* Specific API endpoints or resources\n* Request headers or payload data\n\nWe are also interested in understanding how these roles can be managed programmatically through your APIs or SDKs. \n\nThank you in advance for your assistance.\n\nSincerely,\nIsabella Fernandez",
+      "expected_category": "account",
+      "expected_summary": "Hello Aetheros Support,  We are evaluating Aetheros for our API management needs and are particularly interested in the IAM service and its integration with the API Gateway.  Could you please provide some information on how granular we can get wit...",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:inquiry",
+        "edge-case"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Inquiry about API Gateway Integration with IAM Roles'. Products: ['API development', 'IAM service']"
+    },
+    {
+      "id": "TC-058",
+      "input_email": "Hi Aetheros Support,\n\nWe're experiencing a critical issue with the IAM service. We're unable to assign new roles to our users, and it's impacting our operations severely. \n\nWe've tried the following troubleshooting steps:\n- Verified our permissions\n- Checked for any error messages in the logs (found nothing relevant)\n\nWe need this resolved ASAP. Please advise on next steps.\n\nThanks,\nJohn Doe",
+      "expected_category": "account",
+      "expected_summary": "Hi Aetheros Support,  We're experiencing a critical issue with the IAM service. We're unable to assign new roles to our users, and it's impacting our operations severely.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:inquiry",
+        "high-priority"
+      ],
+      "notes": "IAM/access related issue. Subject: 'URGENT: Unable to Assign New Roles in IAM Service'. Products: ['IAM service']"
+    },
+    {
+      "id": "TC-059",
+      "input_email": "Hi Aetheros Support,\n\nWe're encountering an issue with user role inheritance in the IAM service. We have a hierarchical role structure set up, but it seems that users at lower levels are not inheriting permissions correctly from their parent roles. This is causing disruptions in our workflow as users are unable to access resources they should have access to.\n\nCould you please look into this urgently? We need this resolved as soon as possible.\n\nThanks,\nJohn Doe",
+      "expected_category": "account",
+      "expected_summary": "Hi Aetheros Support,  We're encountering an issue with user role inheritance in the IAM service. We have a hierarchical role structure set up, but it seems that users at lower levels are not inheriting permissions correctly from their parent roles.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:issue"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Problem with User Role Inheritance in IAM'. Products: ['IAM service']"
+    },
+    {
+      "id": "TC-060",
+      "input_email": "We're facing a critical issue integrating our Mercury language scripts with the Aetheros IAM service.  We're unable to properly enforce role-based access controls within our application due to what seems like a conflict between Mercury's authorization model and the IAM roles. This is causing a major security vulnerability in our production environment.\n\nSpecifically, we're encountering the following error when attempting to access protected resources using Mercury:\n\n```\nMercury Authorization Error: Access denied for role 'viewer' to resource '...' \n```\n\nWe've verified that the user has the correct role assigned in the IAM console, and the resource permissions are correctly configured. This issue seems to stem from a mismatch in how Mercury interacts with the IAM service.\n\nWe need an urgent resolution to this issue as it's impacting our live application and posing a significant security risk. Please advise on how to proceed.",
+      "expected_category": "account",
+      "expected_summary": "We're facing a critical issue integrating our Mercury language scripts with the Aetheros IAM service.  We're unable to properly enforce role-based access controls within our application due to what seems like a conflict between Mercury's authoriza...",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:inquiry",
+        "high-priority"
+      ],
+      "notes": "IAM/access related issue. Subject: 'URGENT: Mercury Language Integration with IAM Permissions Issue'. Products: ['Mercury Language', 'IAM service']"
+    },
+    {
+      "id": "TC-061",
+      "input_email": "Hi Aetheros Support,\n\nI'm working on setting up more granular access control for our development team using your IAM service. We'd like to restrict certain API endpoints based on user roles. Is this something possible with Aetheros IAM?\n\nThanks,\nIsiah Okon",
+      "expected_category": "account",
+      "expected_summary": "Hi Aetheros Support,  I'm working on setting up more granular access control for our development team using your IAM service. We'd like to restrict certain API endpoints based on user roles.",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:inquiry",
+        "edge-case"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Question about user roles and API access limitations'. Products: ['API monitoring', 'IAM service']"
+    },
+    {
+      "id": "TC-062",
+      "input_email": "Hi Aetheros Support,\n\nWe're facing critical issues with both your IAM service and Mercury language deployment on your cloud platform.\n\n**IAM Issue:**\nWe're unable to assign specific pre-defined roles to users in our organization. Trying to assign these roles results in an error with no clear message. This is preventing our team from accessing crucial resources.\n\n**Mercury Deployment:**\nWe're experiencing persistent failures when trying to deploy a new microservice built with Mercury. The deployment process gets stuck and eventually times out. We've reviewed our code and environment configurations multiple times, but haven't been able to pinpoint the cause.\n\nWe need urgent assistance resolving these issues as they are severely impacting our operations. Please advise on the next steps.\n\nRegards,\nJohn Doe",
+      "expected_category": "account",
+      "expected_summary": "Hi Aetheros Support,  We're facing critical issues with both your IAM service and Mercury language deployment on your cloud platform.  **IAM Issue:** We're unable to assign specific pre-defined roles to users in our organization.",
+      "expected_difficulty": "hard",
+      "tags": [
+        "source:issue",
+        "edge-case",
+        "multi-product"
+      ],
+      "notes": "IAM/access related issue. Subject: 'Urgent: IAM Role Assignment Failure and Mercury Deployment Issues'. Products: ['IAM service', 'Mercury Language', 'Cloud management']"
+    },
+    {
+      "id": "TC-063",
+      "input_email": "Hi Aetheros Support,\n\nI have a quick question about the API Monitoring dashboard. Is it possible to customize the widgets displayed, and if so, how can I do that?\n\nThanks,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  I have a quick question about the API Monitoring dashboard. Is it possible to customize the widgets displayed, and if so, how can I do that?  Thanks, John Doe.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "General inquiry. Subject: 'API Monitoring Dashboard - Widget Question'. Products: ['API monitoring']"
+    },
+    {
+      "id": "TC-064",
+      "input_email": "Hi Aetheros Support,\n\nWe are currently using your Cloud Management service and are very happy with the features and performance. However, we're looking to implement rate limiting on some of our APIs that are managed by Aetheros Cloud Management. \n\nCould you please provide some information on how we can achieve this? Is there built-in functionality within the Cloud Management platform for API rate limiting, or are there recommended third-party tools that integrate well with your system?\n\nThank you for your time and assistance.\n\nSincerely,\nIsiah Rippin",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  We are currently using your Cloud Management service and are very happy with the features and performance. However, we're looking to implement rate limiting on some of our APIs that are managed by Aetheros Cloud Management.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "General inquiry. Subject: 'Inquiry about API rate limiting in Cloud Management'. Products: ['Cloud management', 'API development']"
+    },
+    {
+      "id": "TC-065",
+      "input_email": "Hi Aetheros Support Team,\n\nI've been using your API monitoring platform for a few months now, and it's been incredibly helpful in tracking our API performance. However, I have a suggestion for the dashboard.\n\nCurrently, the response time graph only shows the average response time. It would be extremely beneficial if we could also visualize the minimum, maximum, and perhaps even percentiles of response times directly on the graph. This would provide a much clearer picture of performance fluctuations and potential bottlenecks.\n\nThanks for considering this suggestion.\n\nSincerely,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support Team,  I've been using your API monitoring platform for a few months now, and it's been incredibly helpful in tracking our API performance. However, I have a suggestion for the dashboard.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:suggestion"
+      ],
+      "notes": "Feature suggestion or feedback. Subject: 'API Monitoring Dashboard Improvement Suggestion'. Products: ['API monitoring', 'Cloud management']"
+    },
+    {
+      "id": "TC-066",
+      "input_email": "Hi Aetheros Support,\n\nI'm working on an application that integrates with your API. I'm a bit confused about the rate limits. Could you please clarify what the limits are for our subscription level?\n\nThanks,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  I'm working on an application that integrates with your API. I'm a bit confused about the rate limits.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "General inquiry. Subject: 'Question about API rate limits'. Products: ['API development']"
+    },
+    {
+      "id": "TC-067",
+      "input_email": "Hi Aetheros Support,\n\nWe're evaluating your API development services for a new project, and we had a few questions about rate limiting:\n\n1. Do you offer built-in rate limiting for APIs developed through your platform?\n2. What level of granularity is available for setting rate limits (e.g., per user, per IP, per API key)?\n3. Can we customize rate limit responses, or are they standardized?\n\nWe're hoping to find a solution that gives us fine-grained control over API usage to ensure performance and security. \n\nThanks in advance for your help.\n\nSincerely,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  We're evaluating your API development services for a new project, and we had a few questions about rate limiting:  1. Do you offer built-in rate limiting for APIs developed through your platform? 2.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "General inquiry. Subject: 'Inquiry about API Development and Rate Limiting'. Products: ['API development']"
+    },
+    {
+      "id": "TC-068",
+      "input_email": "Hi Aetheros Support,\n\nWe've been experiencing some performance issues related to scaling our cloud resources during peak hours. We believe there might be room for optimization in how our instances are configured.\n\nCould you please provide guidance or recommendations on optimizing our instance setup for better scaling and performance?  We are particularly interested in strategies for [Specific service or resource they are having issues with].\n\nThank you,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  We've been experiencing some performance issues related to scaling our cloud resources during peak hours. We believe there might be room for optimization in how our instances are configured.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:suggestion"
+      ],
+      "notes": "Feature suggestion or feedback. Subject: 'Scaling Issues with Cloud Resources - Instance Optimization Request'. Products: ['Cloud management']"
+    },
+    {
+      "id": "TC-069",
+      "input_email": "Hello Aetheros Support,\n\nWe've been using your Cloud Management and API Development services for the past few months and are largely satisfied. However, we've encountered a slight bottleneck in our deployment pipeline regarding the integration between these two services.\n\nCurrently, any updates to our APIs require manual configuration changes within the Cloud Management dashboard before deployment. This process is a bit cumbersome and slows down our release cycle. \n\nIs there a way to automate this process, perhaps through an API endpoint or webhook integration? This would streamline our workflow significantly.\n\nThank you for your time and consideration. \n\nSincerely,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hello Aetheros Support,  We've been using your Cloud Management and API Development services for the past few months and are largely satisfied. However, we've encountered a slight bottleneck in our deployment pipeline regarding the integration bet...",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:suggestion"
+      ],
+      "notes": "Feature suggestion or feedback. Subject: 'Improving Cloud Management Deployment Pipeline'. Products: ['Cloud management', 'API development']"
+    },
+    {
+      "id": "TC-070",
+      "input_email": "Hi Aetheros Support,\n\nWe're experiencing a critical issue with the API you developed for us. It's causing widespread disruptions to our system and preventing key functionalities from working. We need immediate assistance to resolve this issue as soon as possible.\n\nPlease let us know what information you need from our end to help diagnose the problem.\n\nThanks,\nJohn Doe\nExample Company",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  We're experiencing a critical issue with the API you developed for us. It's causing widespread disruptions to our system and preventing key functionalities from working.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry",
+        "high-priority"
+      ],
+      "notes": "General inquiry. Subject: 'URGENT: Our API Integration is Failing - Need Immediate Assistance'. Products: ['API development']"
+    },
+    {
+      "id": "TC-071",
+      "input_email": "Hi Aetheros Support,\n\nWe're experiencing a critical issue with API rate limiting on our production environment. Since this morning, legitimate requests are being throttled, causing significant disruption to our services. We've checked our usage and it's well within our allocated limits. \n\nWe need immediate assistance to diagnose and resolve this issue. Please advise on the next steps.\n\nRegards,\nJohn Doe\nExample Company",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  We're experiencing a critical issue with API rate limiting on our production environment. Since this morning, legitimate requests are being throttled, causing significant disruption to our services.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "General inquiry. Subject: 'Urgent request: API rate limiting issue impacting production'. Products: ['API development', 'Cloud management']"
+    },
+    {
+      "id": "TC-072",
+      "input_email": "Hi Aetheros Support Team,\n\nI'm writing to suggest an improvement for your Cloud Management service. While I appreciate the existing scaling capabilities, I believe there's room for optimization in resource allocation efficiency during peak loads. \n\nCurrently, we've observed that the automatic scaling sometimes provisions more resources than necessary, leading to increased costs. It would be beneficial if the scaling logic could be refined to analyze usage patterns more intelligently and allocate resources more conservatively while still ensuring optimal performance.\n\nPerhaps you could consider implementing algorithms that factor in historical usage data and predict future needs with higher accuracy. Additionally, providing users with more granular control over scaling thresholds and triggers would be valuable.\n\nThank you for considering this suggestion. I believe it could significantly enhance the efficiency and cost-effectiveness of the Cloud Management service for many users.\n\nSincerely,\nIsiah McDermott",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support Team,  I'm writing to suggest an improvement for your Cloud Management service. While I appreciate the existing scaling capabilities, I believe there's room for optimization in resource allocation efficiency during peak loads.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:suggestion"
+      ],
+      "notes": "Feature suggestion or feedback. Subject: 'Improving Resource Scaling Efficiency in Cloud Management'. Products: ['Cloud management', 'API development']"
+    },
+    {
+      "id": "TC-073",
+      "input_email": "Hi Aetheros Support Team,\n\nI've been using your API monitoring service for a few months now and overall I'm quite happy with it. However, I have a suggestion for the dashboard. \n\nIt would be incredibly helpful if we could customize the dashboard widgets to display specific metrics more prominently. For example, I'd like to have a large widget showing the average response time for a particular endpoint group right at the top. \n\nCould you consider adding this customization feature in a future update?\n\nThanks,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support Team,  I've been using your API monitoring service for a few months now and overall I'm quite happy with it. However, I have a suggestion for the dashboard.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:suggestion"
+      ],
+      "notes": "Feature suggestion or feedback. Subject: 'Suggestion for API Monitoring Dashboard'. Products: ['API monitoring']"
+    },
+    {
+      "id": "TC-074",
+      "input_email": "Hi Aetheros Support,\n\nI'm writing to suggest an improvement to the API Monitoring dashboard. Currently, it's a bit difficult to quickly see the average response time for a specific API endpoint over a custom time range. It would be incredibly helpful if you could add a feature that allows us to easily select a custom time period and view the average response time for a chosen endpoint within that timeframe.\n\nThanks,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  I'm writing to suggest an improvement to the API Monitoring dashboard. Currently, it's a bit difficult to quickly see the average response time for a specific API endpoint over a custom time range.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:suggestion"
+      ],
+      "notes": "Feature suggestion or feedback. Subject: 'Suggestion for API Monitoring Dashboard'. Products: ['API monitoring', 'API development']"
+    },
+    {
+      "id": "TC-075",
+      "input_email": "Hi Aetheros Support Team,\n\nI'm writing to suggest a new feature for your API development services. It would be incredibly beneficial if you could add support for WebSockets.\n\nAs real-time data becomes more crucial for our web application, we're finding that traditional HTTP requests are not sufficient for our needs. WebSockets would allow us to build real-time features like live chat, notifications, and collaborative tools directly into our application.\n\nI understand that adding support for a new technology like WebSockets can be a significant undertaking. Still, I believe it would be a valuable addition to your already impressive suite of services.\n\nThank you for considering my suggestion.\n\nSincerely,\nIsabella Williams",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support Team,  I'm writing to suggest a new feature for your API development services. It would be incredibly beneficial if you could add support for WebSockets.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:suggestion"
+      ],
+      "notes": "Feature suggestion or feedback. Subject: 'Suggestion for API Development: Adding Support for WebSockets'. Products: ['API development']"
+    },
+    {
+      "id": "TC-076",
+      "input_email": "Hi Aetheros Support Team,\n\nI've been using your API Monitoring platform for a few weeks now and it's been very helpful. However, I have a suggestion for the dashboard. It would be great if we could customize the dashboard widgets to display specific metrics relevant to our needs. For example, being able to create a widget that shows the average latency of a particular API endpoint over a custom timeframe.\n\nThis would greatly improve the platform's usability and allow us to focus on the metrics that matter most to us.\n\nThanks,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support Team,  I've been using your API Monitoring platform for a few weeks now and it's been very helpful. However, I have a suggestion for the dashboard.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:suggestion"
+      ],
+      "notes": "Feature suggestion or feedback. Subject: 'Suggestion for API Monitoring Dashboard'. Products: ['API development', 'API monitoring']"
+    },
+    {
+      "id": "TC-077",
+      "input_email": "Hi Aetheros Support,\n\nI'm writing to suggest a potentially valuable addition to the Mercury language: built-in support for async/await syntax. \n\nAs you know, handling asynchronous operations effectively is crucial for modern web applications, particularly when interacting with APIs or performing I/O-bound tasks.  Async/await patterns have become a standard in many languages for writing asynchronous code that is easier to read, understand, and maintain compared to traditional callback-based approaches.\n\nImplementing async/await in Mercury would significantly improve developer productivity and code quality for applications built using your framework.  \n\nI'd be happy to discuss this suggestion further and provide more specific examples of how this feature could be implemented and the benefits it would bring.\n\nThanks,\nIsabella Davis",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  I'm writing to suggest a potentially valuable addition to the Mercury language: built-in support for async/await syntax.   As you know, handling asynchronous operations effectively is crucial for modern web applications, part...",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:suggestion"
+      ],
+      "notes": "Feature suggestion or feedback. Subject: 'Suggestion for Mercury Language: Async/Await Functionality'. Products: ['Mercury Language']"
+    },
+    {
+      "id": "TC-078",
+      "input_email": "Hi Aetheros Support,\n\nWe've been experiencing some difficulties scaling our cloud resources effectively through your platform. Our application experiences periodic traffic spikes, and we're not seeing the automatic scaling we anticipated.\n\nCould you please advise on how we can troubleshoot this?\n\nThanks,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  We've been experiencing some difficulties scaling our cloud resources effectively through your platform. Our application experiences periodic traffic spikes, and we're not seeing the automatic scaling we anticipated.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "General inquiry. Subject: 'Scaling Issues with Cloud Resources'. Products: ['Cloud Management']"
+    },
+    {
+      "id": "TC-079",
+      "input_email": "Hi Aetheros Support,\n\nI'm interested in learning more about your API development services. Specifically, I'm curious about your experience building APIs for financial applications. Could you provide some information or case studies related to your work in this area?\n\nThanks,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  I'm interested in learning more about your API development services. Specifically, I'm curious about your experience building APIs for financial applications.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "General inquiry. Subject: 'Question about API Development Services'. Products: ['API development']"
+    },
+    {
+      "id": "TC-080",
+      "input_email": "Hi Aetheros Support,\n\nI'm having some trouble understanding how the auto-scaling feature works within your Cloud Management service. \n\nSpecifically, what metrics are used to trigger a scale-up event? Is it possible to customize these thresholds?\n\nThanks,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  I'm having some trouble understanding how the auto-scaling feature works within your Cloud Management service.   Specifically, what metrics are used to trigger a scale-up event? Is it possible to customize these thresholds?  ...",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "General inquiry. Subject: 'Question about Cloud Management auto-scaling'. Products: ['Cloud management']"
+    },
+    {
+      "id": "TC-081",
+      "input_email": "Hi Aetheros Support,\n\nI'm interested in learning more about your API development services. Specifically, I'm interested in understanding how your team can help us build a custom API that integrates with our existing systems.\n\nCould you please provide me with some more information about your process, timelines, and pricing?\n\nThanks,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  I'm interested in learning more about your API development services. Specifically, I'm interested in understanding how your team can help us build a custom API that integrates with our existing systems.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "General inquiry. Subject: 'Inquiry about API Development Services'. Products: ['API development']"
+    },
+    {
+      "id": "TC-082",
+      "input_email": "Hi Aetheros Support,\n\nI'm working on an application that uses your API development services. I'm a bit confused about the rate limits. Can you please clarify what the default rate limit is for API calls?\n\nThanks,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  I'm working on an application that uses your API development services. I'm a bit confused about the rate limits.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "General inquiry. Subject: 'Question about API rate limits'. Products: ['API development']"
+    },
+    {
+      "id": "TC-083",
+      "input_email": "Hi Aetheros Support Team,\n\nI'm writing to suggest some improvements to the API Monitoring dashboard. While the current dashboard provides a good overview, I believe adding the following features would greatly enhance its usability:\n\n1. **Customizable Time Range Presets:** It would be very helpful to have the ability to set custom time range presets (e.g., last 30 minutes, last 6 hours) beyond the default options.\n2. **API Grouping and Filtering:**  With a large number of APIs being monitored, it becomes difficult to navigate and find specific data. Implementing API grouping and advanced filtering options would be highly beneficial.\n3. **Alert Threshold Visualization:** Visually representing alert thresholds directly on the performance graphs would provide a clearer understanding of API health at a glance.\n\nI believe these enhancements would significantly improve the user experience and provide greater insights into API performance.\n\nThank you for considering my suggestions.\n\nSincerely,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support Team,  I'm writing to suggest some improvements to the API Monitoring dashboard. While the current dashboard provides a good overview, I believe adding the following features would greatly enhance its usability:  1.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "source:suggestion"
+      ],
+      "notes": "Feature suggestion or feedback. Subject: 'Suggestion for API Monitoring Dashboard Enhancements'. Products: ['API monitoring', 'Cloud management']"
+    },
+    {
+      "id": "TC-084",
+      "input_email": "Hi Aetheros Support,\n\nWe've been experiencing some difficulties scaling our cloud resources effectively through your platform. Our application experiences significant slowdowns during peak hours, and we believe it's related to resource limitations. \n\nCould you please advise on how to best diagnose and address this issue?\n\nThanks,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  We've been experiencing some difficulties scaling our cloud resources effectively through your platform. Our application experiences significant slowdowns during peak hours, and we believe it's related to resource limitations.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "General inquiry. Subject: 'Scaling Issues with Cloud Resources'. Products: ['Cloud management']"
+    },
+    {
+      "id": "TC-085",
+      "input_email": "Hi Aetheros Support,\n\nI'm writing to suggest an improvement to the Cloud Management dashboard. It would be incredibly helpful if we could see a real-time visualization of resource consumption (CPU, memory, etc.) directly on the main dashboard. This would provide a quick and easy way to monitor the health of our deployments. \n\nThanks,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  I'm writing to suggest an improvement to the Cloud Management dashboard. It would be incredibly helpful if we could see a real-time visualization of resource consumption (CPU, memory, etc.) directly on the main dashboard.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:suggestion"
+      ],
+      "notes": "Feature suggestion or feedback. Subject: 'Suggestion for Cloud Management Dashboard'. Products: ['Cloud management']"
+    },
+    {
+      "id": "TC-086",
+      "input_email": "Hello Aetheros Support Team,\n\nMy name is John Doe, and I'm leading a new project at [Company Name]. We're very interested in leveraging Aetheros's expertise in API development for a complex web application we're building.\n\nCould you please provide us with some more information about your API development process, timelines, and pricing?\n\nSpecifically, we'd like to know:\n\n* What frameworks and technologies do you typically use for API development?\n* Do you offer support for both RESTful and GraphQL APIs?\n* What is your experience in integrating with third-party services?\n* Can you share any case studies of successful API projects you've completed?\n\nWe appreciate your time and look forward to hearing from you soon.\n\nBest regards,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hello Aetheros Support Team,  My name is John Doe, and I'm leading a new project at [Company Name]. We're very interested in leveraging Aetheros's expertise in API development for a complex web application we're building.",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "General inquiry. Subject: 'Inquiry about API Development Services - New Project'. Products: ['API development']"
+    },
+    {
+      "id": "TC-087",
+      "input_email": "Hi Aetheros Support,\n\nI'm having a bit of trouble understanding how the automatic scaling works with your Cloud Management service. Specifically, what metrics are used to trigger scaling up? Is it possible to adjust the sensitivity of the scaling triggers?\n\nThanks,\nJohn Doe",
+      "expected_category": "general",
+      "expected_summary": "Hi Aetheros Support,  I'm having a bit of trouble understanding how the automatic scaling works with your Cloud Management service. Specifically, what metrics are used to trigger scaling up? Is it possible to adjust the sensitivity of the scaling ...",
+      "expected_difficulty": "easy",
+      "tags": [
+        "source:inquiry"
+      ],
+      "notes": "General inquiry. Subject: 'Question about Cloud Management scaling'. Products: ['Cloud management']"
+    },
+    {
+      "id": "TC-088",
+      "input_email": "This product is absolute garbage. Nothing works. I can't log in, I can't see my invoices, and the API returns errors half the time. I want a full refund and I'm cancelling everything.",
+      "expected_category": "billing",
+      "expected_summary": "Customer expresses extreme frustration across multiple issues (login, invoices, API errors) and demands a refund and cancellation.",
+      "expected_difficulty": "adversarial",
+      "tags": [
+        "synthesized",
+        "edge-case",
+        "multi-category",
+        "angry-customer"
+      ],
+      "notes": "Touches billing (refund), account (login), and technical (API errors). Billing/cancellation is the primary actionable request."
+    },
+    {
+      "id": "TC-089",
+      "input_email": "lol ur api is down again 😂 fix it pls thx",
+      "expected_category": "technical",
+      "expected_summary": "Customer reports API downtime in informal language.",
+      "expected_difficulty": "adversarial",
+      "tags": [
+        "synthesized",
+        "edge-case",
+        "informal",
+        "emoji"
+      ],
+      "notes": "Tests handling of extremely informal language with emoji"
+    },
+    {
+      "id": "TC-090",
+      "input_email": "I accidentally deleted my admin account and now nobody on our team can manage permissions or access the billing portal. We need this restored ASAP - we have 200 employees affected.",
+      "expected_category": "account",
+      "expected_summary": "Customer accidentally deleted their admin account, leaving the entire team unable to manage permissions or access billing.",
+      "expected_difficulty": "hard",
+      "tags": [
+        "synthesized",
+        "edge-case",
+        "multi-category"
+      ],
+      "notes": "Primarily account issue (deleted admin) though it also impacts billing access. Account restoration is the critical action."
+    },
+    {
+      "id": "TC-091",
+      "input_email": "Dear Support,\n\nI hope this message finds you well. I wanted to reach out regarding a matter that has been on my mind. You see, I've been using your platform for quite some time now, and while I generally find it satisfactory, there are certain aspects that I believe could benefit from refinement. Specifically, I think the onboarding experience for new team members could be smoother, and the documentation, while comprehensive, sometimes lacks practical examples that would help less technical users get started more quickly. I don't have any urgent issues — just wanted to share my thoughts as a long-time customer.\n\nBest regards,\nA satisfied customer",
+      "expected_category": "general",
+      "expected_summary": "Long-time customer provides unsolicited feedback about improving the onboarding experience and documentation with more practical examples.",
+      "expected_difficulty": "medium",
+      "tags": [
+        "synthesized",
+        "verbose",
+        "feedback"
+      ],
+      "notes": "Very wordy email with no specific issue — tests whether classifier correctly identifies general feedback vs. a reportable problem"
+    },
+    {
+      "id": "TC-092",
+      "input_email": "Subject: RE: RE: RE: FW: Original ticket #4847\n\n+1 to what Sarah said below. Also tagging @mike for visibility.\n\n---\nForwarded message not included",
+      "expected_category": "general",
+      "expected_summary": "Forwarded thread reply with no substantive content — customer agrees with a previous message and tags a colleague.",
+      "expected_difficulty": "adversarial",
+      "tags": [
+        "synthesized",
+        "edge-case",
+        "no-content",
+        "forwarded"
+      ],
+      "notes": "Email with almost no actionable content — tests classifier on context-free forwarded threads"
+    }
+  ]
+}
