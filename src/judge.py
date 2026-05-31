@@ -9,7 +9,6 @@ from __future__ import annotations
 import json
 import logging
 import os
-from google.genai import types
 
 logger = logging.getLogger(__name__)
 
@@ -80,6 +79,8 @@ async def score_summary_relevance(
     """
     if not predicted_summary or not predicted_summary.strip():
         return 1.0, "Predicted summary is empty", 0, 0
+
+    from google.genai import types
 
     if client is None:
         try:
